@@ -1,0 +1,168 @@
+{
+    "components": {
+        "examples": {},
+        "headers": {},
+        "parameters": {},
+        "requestBodies": {},
+        "responses": {},
+        "schemas": {},
+        "securitySchemes": {}
+    },
+    "info": {
+        "title": "ecommerce-backend",
+        "version": "0.0.1",
+        "description": "Un ecommerce de la comunidad de Zatge",
+        "license": {
+            "name": "ISC"
+        },
+        "contact": {
+            "name": "Zatge y la comunidad"
+        }
+    },
+    "openapi": "3.0.0",
+    "paths": {
+        "/user/get-user": {
+            "get": {
+                "operationId": "GetUser",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "age": {
+                                            "type": "number",
+                                            "format": "double"
+                                        },
+                                        "surname": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "age",
+                                        "surname",
+                                        "name"
+                                    ],
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": []
+            }
+        },
+        "/user/get-users": {
+            "get": {
+                "operationId": "GetUsers",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "age": {
+                                                "type": "number",
+                                                "format": "double"
+                                            },
+                                            "surname": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "age",
+                                            "surname",
+                                            "name"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": []
+            }
+        },
+        "/user/create-user": {
+            "post": {
+                "operationId": "CreateUser",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "age": {
+                                            "type": "number",
+                                            "format": "double"
+                                        },
+                                        "surname": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "age",
+                                        "surname",
+                                        "name"
+                                    ],
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [],
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "age": {
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "surname": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "age",
+                                    "surname",
+                                    "name"
+                                ],
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "/"
+        }
+    ]
+}

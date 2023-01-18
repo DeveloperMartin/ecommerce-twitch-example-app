@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Location {
+  locationId  Int      @id @default(autoincrement())
+  code        String   @unique
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+  updatedAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+
+  @@map("Locations")
+}
