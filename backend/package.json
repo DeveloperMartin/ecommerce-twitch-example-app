@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Un ecommerce de la comunidad de Zatge",
   "main": "index.js",
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "scripts": {
     "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "build": "tsoa spec-and-routes && tsc",
