@@ -46,6 +46,22 @@ class LocationService {
     return updatedLocation
   }
 
+  async createLocation(location: CreateLocationDTO) {
+    const newLocation = await prisma.location.create({
+      data: {
+        code: location.code,
+        description: location.description
+      },
+      select: {
+        locationId: true,
+        code: true,
+        description: true
+      }
+    })
+
+    return newLocation;
+  }
+
 }
 
 export const locationService = new LocationService()
