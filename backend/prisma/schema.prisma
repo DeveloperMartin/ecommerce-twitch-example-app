@@ -20,6 +20,22 @@ model Location {
 
   @@map("Locations")
 }
+
+model Product {
+  productId   Int      @id @default(autoincrement())
+  code        String   @unique
+  description String
+  price       Float
+  categoryId  Int
+  sizeId      Int
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+  updatedAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+
+
+  @@map("Products")
+}
+
 model ProductStock {
   productStockId Int      @id @default(autoincrement())
   productId      Int
