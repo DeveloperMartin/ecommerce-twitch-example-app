@@ -46,6 +46,8 @@ model ProductStock {
   createdAt      DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
   updatedAt      DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
 
+  location Location @relation(fields: [locationId], references: [locationId])
+  Product  Product? @relation(fields: [productId], references: [productId])
 
   @@map("ProductsStock")
 }
