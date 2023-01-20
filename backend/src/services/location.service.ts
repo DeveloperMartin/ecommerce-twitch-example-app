@@ -31,6 +31,21 @@ class LocationService {
     return location
   }
 
+  async updateLocation(locationCode:string, location: UpdateLocationDTO){
+    const updatedLocation = await prisma.location.update({
+      where: {
+        code: locationCode
+      },
+      data: {
+        code: location.code,
+        description: location.description,
+        isActive: location.isActive
+      }
+    })
+
+    return updatedLocation
+  }
+
 }
 
 export const locationService = new LocationService()
