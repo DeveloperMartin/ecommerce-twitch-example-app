@@ -70,6 +70,7 @@ model Size {
   createdAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
   updatedAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
 
+  products Product[]
 
   @@map("Sizes")
 }
