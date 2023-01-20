@@ -20,6 +20,20 @@ model Location {
 
   @@map("Locations")
 }
+model ProductStock {
+  productStockId Int      @id @default(autoincrement())
+  productId      Int
+  locationId     Int
+  count          Int
+  alertStock     Int
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+  updatedAt      DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+
+
+  @@map("ProductsStock")
+}
+
 model Category {
   categoryId  Int      @id @default(autoincrement())
   code        String   @unique
