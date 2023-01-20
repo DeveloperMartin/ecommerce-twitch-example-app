@@ -18,6 +18,8 @@ model Location {
   createdAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
   updatedAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
 
+  productsStock ProductStock[]
+
   @@map("Locations")
 }
 
