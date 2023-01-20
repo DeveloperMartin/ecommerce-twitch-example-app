@@ -20,3 +20,14 @@ model Location {
 
   @@map("Locations")
 }
+model Size {
+  sizeId      Int      @id @default(autoincrement())
+  code        String   @unique
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+  updatedAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+
+
+  @@map("Sizes")
+}
