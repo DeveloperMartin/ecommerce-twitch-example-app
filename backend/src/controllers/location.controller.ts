@@ -12,5 +12,12 @@ export class LocationController {
     return await locationService.getLocationList(isActive)
   }
 
+  @Get('get-location/{locationCode}')
+  public async getLocationByCode(
+    @Path() locationCode: string
+  ){
+    return await locationService.getLocationByCode(locationCode)
+  }
+
 
 }
