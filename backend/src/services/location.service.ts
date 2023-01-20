@@ -16,6 +16,21 @@ class LocationService {
     return location
   }
 
+  async getLocationByCode(locationCode: string) {
+    const location = await prisma.location.findUnique({
+      where: {
+        code: locationCode
+      },
+      select: {
+        locationId: true,
+        code: true,
+        description: true
+      }
+    })
+
+    return location
+  }
+
 }
 
 export const locationService = new LocationService()
