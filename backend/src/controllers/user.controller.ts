@@ -1,6 +1,7 @@
-import { Body, Get, Post, Route } from "tsoa";
+import { Body, Get, Post, Route, Tags } from "tsoa";
 
 @Route('user') // localhost:3000/user
+@Tags('User')
 export class Usercontroller {
   
   @Get('get-user')
