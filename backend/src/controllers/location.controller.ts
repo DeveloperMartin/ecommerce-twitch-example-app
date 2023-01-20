@@ -19,5 +19,12 @@ export class LocationController {
     return await locationService.getLocationByCode(locationCode)
   }
 
+  @Put('update-location/{locationCode}')
+  public async updateLocation(
+    @Path() locationCode: string,
+    @Body() location: UpdateLocationDTO){
+    return await locationService.updateLocation(locationCode, location)
+  }
+
 
 }
