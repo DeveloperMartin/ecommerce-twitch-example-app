@@ -26,5 +26,12 @@ export class LocationController {
     return await locationService.updateLocation(locationCode, location)
   }
 
+  @Post('create-location')
+  public async createLocation(
+    @Body() location: CreateLocationDTO
+  ){
+    return await locationService.createLocation(location)
+  }
+
 
 }
