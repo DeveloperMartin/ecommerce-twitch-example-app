@@ -32,6 +32,9 @@ model Product {
   createdAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
   updatedAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
 
+  category      Category       @relation(fields: [categoryId], references: [categoryId])
+  size          Size           @relation(fields: [sizeId], references: [sizeId])
+  productsStock ProductStock[]
 
   @@map("Products")
 }
