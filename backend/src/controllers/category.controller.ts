@@ -27,4 +27,10 @@ import { CreateCategoryDTO, UpdateCategoryDTO } from "../models/DTO/category.dto
       return await categoryService.updateCategory(categoryCode, category);
     }
 
+    @Post('create-category')
+    public async createCategory(
+      @Body() category: CreateCategoryDTO
+    ) {
+      return await categoryService.createCategory(category)
+    }
   }
