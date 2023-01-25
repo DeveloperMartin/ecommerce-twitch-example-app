@@ -46,6 +46,22 @@ class CategoryService {
   }
 
   async updateCategory(categoryCode: string, category: UpdateCategoryDTO) {
+
+    //A modo de referencia no usar.
+    // const categoryUpdateFind = await prisma.category.findUnique({
+    //   where: {
+    //     categoryId: 1 // El uno es un dato que debe venir como parametro
+    //   }, 
+    //   select: {
+    //     code: true
+    //   }
+    // })
+
+    // if(!categoryUpdateFind){
+    //   return
+    // }
+
+
     const updatedCategory = await prisma.category.update({
       where: {
         code: categoryCode
