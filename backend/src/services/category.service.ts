@@ -34,6 +34,17 @@ class CategoryService {
     return category
   }
 
+  async createCategory(category: CreateCategoryDTO) {
+    const newCategory = await prisma.category.create({
+      data: {
+        code: category.code,
+        description: category.description
+      }
+    })
+
+    return newCategory;
+  }
+
 }
 
 export const categoryService = new CategoryService()
