@@ -18,6 +18,22 @@ class CategoryService {
     return categories
   }
 
+  async getCategoryByCode(categoryCode: string) {
+    const category = await prisma.category.findUnique({
+      where: {
+        code: categoryCode
+      },
+      select: {
+        categoryId: true,
+        code: true,
+        description: true,
+        isActive: true
+      }
+    })
+
+    return category
+  }
+
 }
 
 export const categoryService = new CategoryService()
