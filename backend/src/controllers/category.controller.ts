@@ -19,4 +19,12 @@ import { CreateCategoryDTO, UpdateCategoryDTO } from "../models/DTO/category.dto
       return await categoryService.getCategoryByCode(categoryCode);
     }
 
+    @Put('update-category/{categoryCode}')
+    public async updateCategory(
+      @Path() categoryCode: string,
+      @Body() category: UpdateCategoryDTO
+    ) {
+      return await categoryService.updateCategory(categoryCode, category);
+    }
+
   }
