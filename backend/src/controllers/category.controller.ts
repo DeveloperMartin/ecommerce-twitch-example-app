@@ -12,4 +12,11 @@ import { CreateCategoryDTO, UpdateCategoryDTO } from "../models/DTO/category.dto
       return await categoryService.getCategoryList(isActive);
     }
 
+    @Get('get-category/{categoryCode}')
+    public async getCategoryByCode(
+      @Path() categoryCode: string
+    ) {
+      return await categoryService.getCategoryByCode(categoryCode);
+    }
+
   }
