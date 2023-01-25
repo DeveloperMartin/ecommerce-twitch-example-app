@@ -45,6 +45,19 @@ class CategoryService {
     return newCategory;
   }
 
+  async updateCategory(categoryCode: string, category: UpdateCategoryDTO) {
+    const updatedCategory = await prisma.category.update({
+      where: {
+        code: categoryCode
+      }, 
+      data:{
+        code: category.code,
+
+      }
+    })
+
+    return updatedCategory;
+  }
 }
 
 export const categoryService = new CategoryService()
