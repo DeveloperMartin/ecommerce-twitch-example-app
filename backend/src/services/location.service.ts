@@ -29,7 +29,7 @@ class LocationService {
     })
 
     return location
-  }
+  } 
 
   async updateLocation(locationCode:string, location: UpdateLocationDTO){
     const updatedLocation = await prisma.location.update({
@@ -42,7 +42,7 @@ class LocationService {
         isActive: location.isActive
       }
     })
-
+    
     return updatedLocation
   }
 
