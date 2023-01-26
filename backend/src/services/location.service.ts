@@ -1,5 +1,5 @@
 import { CreateLocationDTO, UpdateLocationDTO } from "../models/DTO/location.dto";
-import prisma from "../models";
+import prisma from "../models/client";
 class LocationService {
   async getLocationList(isActive: boolean = true) {
     const location = await prisma.location.findMany({
