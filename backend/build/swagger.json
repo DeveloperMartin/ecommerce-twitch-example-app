@@ -5,7 +5,224 @@
 		"parameters": {},
 		"requestBodies": {},
 		"responses": {},
-		"schemas": {},
+		"schemas": {
+			"Category": {
+				"properties": {
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					},
+					"categoryId": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"updatedAt",
+					"createdAt",
+					"isActive",
+					"description",
+					"code",
+					"categoryId"
+				],
+				"type": "object",
+				"description": "Model Category"
+			},
+			"UpdateCategoryDTO": {
+				"properties": {
+					"isActive": {
+						"type": "boolean"
+					},
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"isActive",
+					"description",
+					"code"
+				],
+				"type": "object"
+			},
+			"CreateCategoryDTO": {
+				"properties": {
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"description",
+					"code"
+				],
+				"type": "object"
+			},
+			"Location": {
+				"properties": {
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					},
+					"locationId": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"updatedAt",
+					"createdAt",
+					"isActive",
+					"description",
+					"code",
+					"locationId"
+				],
+				"type": "object",
+				"description": "Model Location"
+			},
+			"UpdateLocationDTO": {
+				"properties": {
+					"isActive": {
+						"type": "boolean"
+					},
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"isActive",
+					"description",
+					"code"
+				],
+				"type": "object"
+			},
+			"CreateLocationDTO": {
+				"properties": {
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"description",
+					"code"
+				],
+				"type": "object"
+			},
+			"Size": {
+				"properties": {
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					},
+					"sizeId": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"updatedAt",
+					"createdAt",
+					"isActive",
+					"description",
+					"code",
+					"sizeId"
+				],
+				"type": "object",
+				"description": "Model Size"
+			},
+			"UpdateSizeDTO": {
+				"properties": {
+					"isActive": {
+						"type": "boolean"
+					},
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"isActive",
+					"description",
+					"code"
+				],
+				"type": "object"
+			},
+			"CreateSizeDTO": {
+				"properties": {
+					"description": {
+						"type": "string",
+						"nullable": true
+					},
+					"code": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"description",
+					"code"
+				],
+				"type": "object"
+			}
+		},
 		"securitySchemes": {}
 	},
 	"info": {
@@ -21,45 +238,9 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/user/get-user": {
+		"/category/get-category-list": {
 			"get": {
-				"operationId": "GetUser",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"age": {
-											"type": "number",
-											"format": "double"
-										},
-										"surname": {
-											"type": "string"
-										},
-										"name": {
-											"type": "string"
-										}
-									},
-									"required": [
-										"age",
-										"surname",
-										"name"
-									],
-									"type": "object"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/user/get-users": {
-			"get": {
-				"operationId": "GetUsers",
+				"operationId": "GetCategoryList",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -68,21 +249,21 @@
 								"schema": {
 									"items": {
 										"properties": {
-											"age": {
+											"description": {
+												"type": "string"
+											},
+											"code": {
+												"type": "string"
+											},
+											"categoryId": {
 												"type": "number",
 												"format": "double"
-											},
-											"surname": {
-												"type": "string"
-											},
-											"name": {
-												"type": "string"
 											}
 										},
 										"required": [
-											"age",
-											"surname",
-											"name"
+											"description",
+											"code",
+											"categoryId"
 										],
 										"type": "object"
 									},
@@ -92,13 +273,25 @@
 						}
 					}
 				},
+				"tags": [
+					"Category"
+				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"in": "query",
+						"name": "isActive",
+						"required": false,
+						"schema": {
+							"type": "boolean"
+						}
+					}
+				]
 			}
 		},
-		"/user/create-user": {
-			"post": {
-				"operationId": "CreateUser",
+		"/category/get-category/{categoryCode}": {
+			"get": {
+				"operationId": "GetCategoryByCode",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -106,21 +299,25 @@
 							"application/json": {
 								"schema": {
 									"properties": {
-										"age": {
+										"isActive": {
+											"type": "boolean"
+										},
+										"description": {
+											"type": "string"
+										},
+										"code": {
+											"type": "string"
+										},
+										"categoryId": {
 											"type": "number",
 											"format": "double"
-										},
-										"surname": {
-											"type": "string"
-										},
-										"name": {
-											"type": "string"
 										}
 									},
 									"required": [
-										"age",
-										"surname",
-										"name"
+										"isActive",
+										"description",
+										"code",
+										"categoryId"
 									],
 									"type": "object"
 								}
@@ -128,6 +325,81 @@
 						}
 					}
 				},
+				"tags": [
+					"Category"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "categoryCode",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/category/update-category/{categoryCode}": {
+			"put": {
+				"operationId": "UpdateCategory",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Category"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Category"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "categoryCode",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateCategoryDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/category/create-category": {
+			"post": {
+				"operationId": "CreateCategory",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Category"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Category"
+				],
 				"security": [],
 				"parameters": [],
 				"requestBody": {
@@ -135,24 +407,368 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"properties": {
-									"age": {
-										"type": "number",
-										"format": "double"
+								"$ref": "#/components/schemas/CreateCategoryDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/location/get-location-list": {
+			"get": {
+				"operationId": "GetLocationList",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"properties": {
+											"locationId": {
+												"type": "number",
+												"format": "double"
+											},
+											"description": {
+												"type": "string"
+											},
+											"code": {
+												"type": "string"
+											}
+										},
+										"required": [
+											"locationId",
+											"description",
+											"code"
+										],
+										"type": "object"
 									},
-									"surname": {
-										"type": "string"
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Location"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "isActive",
+						"required": false,
+						"schema": {
+							"type": "boolean"
+						}
+					}
+				]
+			}
+		},
+		"/location/get-location/{locationCode}": {
+			"get": {
+				"operationId": "GetLocationByCode",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"locationId": {
+											"type": "number",
+											"format": "double"
+										},
+										"description": {
+											"type": "string"
+										},
+										"code": {
+											"type": "string"
+										}
 									},
-									"name": {
-										"type": "string"
-									}
-								},
-								"required": [
-									"age",
-									"surname",
-									"name"
-								],
-								"type": "object"
+									"required": [
+										"locationId",
+										"description",
+										"code"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Location"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "locationCode",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/location/update-location/{locationCode}": {
+			"put": {
+				"operationId": "UpdateLocation",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Location"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Location"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "locationCode",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateLocationDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/location/create-location": {
+			"post": {
+				"operationId": "CreateLocation",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"locationId": {
+											"type": "number",
+											"format": "double"
+										},
+										"description": {
+											"type": "string"
+										},
+										"code": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"locationId",
+										"description",
+										"code"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Location"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateLocationDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Size": {
+			"get": {
+				"operationId": "GetSizeList",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"properties": {
+											"sizeId": {
+												"type": "number",
+												"format": "double"
+											},
+											"description": {
+												"type": "string"
+											},
+											"code": {
+												"type": "string"
+											}
+										},
+										"required": [
+											"sizeId",
+											"description",
+											"code"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Size"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "isActive",
+						"required": false,
+						"schema": {
+							"type": "boolean"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateSize",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Size"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Size"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateSizeDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Size/{sizeCode}": {
+			"get": {
+				"operationId": "GetSizeByCode",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"sizeId": {
+											"type": "number",
+											"format": "double"
+										},
+										"isActive": {
+											"type": "boolean"
+										},
+										"description": {
+											"type": "string"
+										},
+										"code": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"sizeId",
+										"isActive",
+										"description",
+										"code"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Size"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "sizeCode",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateSize",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Size"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Size"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "sizeCode",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateSizeDTO"
 							}
 						}
 					}

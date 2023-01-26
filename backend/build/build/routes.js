@@ -6,9 +6,42 @@ exports.RegisterRoutes = void 0;
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 const runtime_1 = require("@tsoa/runtime");
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-const user_controller_1 = require("./../src/controllers/user.controller");
+const category_controller_1 = require("./../src/controllers/category.controller");
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-const models = {};
+const location_controller_1 = require("./../src/controllers/location.controller");
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+const models = {
+    "Category": {
+        "dataType": "refAlias",
+        "type": { "dataType": "nestedObjectLiteral", "nestedProperties": { "updatedAt": { "dataType": "datetime", "required": true }, "createdAt": { "dataType": "datetime", "required": true }, "isActive": { "dataType": "boolean", "required": true }, "description": { "dataType": "union", "subSchemas": [{ "dataType": "string" }, { "dataType": "enum", "enums": [null] }], "required": true }, "code": { "dataType": "string", "required": true }, "categoryId": { "dataType": "double", "required": true } }, "validators": {} },
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "UpdateCategoryDTO": {
+        "dataType": "refAlias",
+        "type": { "dataType": "nestedObjectLiteral", "nestedProperties": { "isActive": { "dataType": "boolean", "required": true }, "description": { "dataType": "union", "subSchemas": [{ "dataType": "string" }, { "dataType": "enum", "enums": [null] }], "required": true }, "code": { "dataType": "string", "required": true } }, "validators": {} },
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "CreateCategoryDTO": {
+        "dataType": "refAlias",
+        "type": { "dataType": "nestedObjectLiteral", "nestedProperties": { "description": { "dataType": "union", "subSchemas": [{ "dataType": "string" }, { "dataType": "enum", "enums": [null] }], "required": true }, "code": { "dataType": "string", "required": true } }, "validators": {} },
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "Location": {
+        "dataType": "refAlias",
+        "type": { "dataType": "nestedObjectLiteral", "nestedProperties": { "updatedAt": { "dataType": "datetime", "required": true }, "createdAt": { "dataType": "datetime", "required": true }, "isActive": { "dataType": "boolean", "required": true }, "description": { "dataType": "union", "subSchemas": [{ "dataType": "string" }, { "dataType": "enum", "enums": [null] }], "required": true }, "code": { "dataType": "string", "required": true }, "locationId": { "dataType": "double", "required": true } }, "validators": {} },
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "UpdateLocationDTO": {
+        "dataType": "refAlias",
+        "type": { "dataType": "nestedObjectLiteral", "nestedProperties": { "isActive": { "dataType": "boolean", "required": true }, "description": { "dataType": "union", "subSchemas": [{ "dataType": "string" }, { "dataType": "enum", "enums": [null] }], "required": true }, "code": { "dataType": "string", "required": true } }, "validators": {} },
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "CreateLocationDTO": {
+        "dataType": "refAlias",
+        "type": { "dataType": "nestedObjectLiteral", "nestedProperties": { "description": { "dataType": "union", "subSchemas": [{ "dataType": "string" }, { "dataType": "enum", "enums": [null] }], "required": true }, "code": { "dataType": "string", "required": true } }, "validators": {} },
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+};
 const validationService = new runtime_1.ValidationService(models);
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 function RegisterRoutes(app) {
@@ -16,46 +49,137 @@ function RegisterRoutes(app) {
     //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
-    app.get('/user/get-user', ...((0, runtime_1.fetchMiddlewares)(user_controller_1.Usercontroller)), ...((0, runtime_1.fetchMiddlewares)(user_controller_1.Usercontroller.prototype.getUser)), function Usercontroller_getUser(request, response, next) {
-        const args = {};
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        let validatedArgs = [];
-        try {
-            validatedArgs = getValidatedArgs(args, request, response);
-            const controller = new user_controller_1.Usercontroller();
-            const promise = controller.getUser.apply(controller, validatedArgs);
-            promiseHandler(controller, promise, response, undefined, next);
-        }
-        catch (err) {
-            return next(err);
-        }
-    });
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    app.get('/user/get-users', ...((0, runtime_1.fetchMiddlewares)(user_controller_1.Usercontroller)), ...((0, runtime_1.fetchMiddlewares)(user_controller_1.Usercontroller.prototype.getUsers)), function Usercontroller_getUsers(request, response, next) {
-        const args = {};
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        let validatedArgs = [];
-        try {
-            validatedArgs = getValidatedArgs(args, request, response);
-            const controller = new user_controller_1.Usercontroller();
-            const promise = controller.getUsers.apply(controller, validatedArgs);
-            promiseHandler(controller, promise, response, undefined, next);
-        }
-        catch (err) {
-            return next(err);
-        }
-    });
-    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    app.post('/user/create-user', ...((0, runtime_1.fetchMiddlewares)(user_controller_1.Usercontroller)), ...((0, runtime_1.fetchMiddlewares)(user_controller_1.Usercontroller.prototype.createUser)), function Usercontroller_createUser(request, response, next) {
+    app.get('/category/get-category-list', ...((0, runtime_1.fetchMiddlewares)(category_controller_1.CategoryController)), ...((0, runtime_1.fetchMiddlewares)(category_controller_1.CategoryController.prototype.getCategoryList)), function CategoryController_getCategoryList(request, response, next) {
         const args = {
-            body: { "in": "body", "name": "body", "required": true, "dataType": "nestedObjectLiteral", "nestedProperties": { "age": { "dataType": "double", "required": true }, "surname": { "dataType": "string", "required": true }, "name": { "dataType": "string", "required": true } } },
+            isActive: { "in": "query", "name": "isActive", "dataType": "boolean" },
         };
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         let validatedArgs = [];
         try {
             validatedArgs = getValidatedArgs(args, request, response);
-            const controller = new user_controller_1.Usercontroller();
-            const promise = controller.createUser.apply(controller, validatedArgs);
+            const controller = new category_controller_1.CategoryController();
+            const promise = controller.getCategoryList.apply(controller, validatedArgs);
+            promiseHandler(controller, promise, response, undefined, next);
+        }
+        catch (err) {
+            return next(err);
+        }
+    });
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    app.get('/category/get-category/:categoryCode', ...((0, runtime_1.fetchMiddlewares)(category_controller_1.CategoryController)), ...((0, runtime_1.fetchMiddlewares)(category_controller_1.CategoryController.prototype.getCategoryByCode)), function CategoryController_getCategoryByCode(request, response, next) {
+        const args = {
+            categoryCode: { "in": "path", "name": "categoryCode", "required": true, "dataType": "string" },
+        };
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        let validatedArgs = [];
+        try {
+            validatedArgs = getValidatedArgs(args, request, response);
+            const controller = new category_controller_1.CategoryController();
+            const promise = controller.getCategoryByCode.apply(controller, validatedArgs);
+            promiseHandler(controller, promise, response, undefined, next);
+        }
+        catch (err) {
+            return next(err);
+        }
+    });
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    app.put('/category/update-category/:categoryCode', ...((0, runtime_1.fetchMiddlewares)(category_controller_1.CategoryController)), ...((0, runtime_1.fetchMiddlewares)(category_controller_1.CategoryController.prototype.updateCategory)), function CategoryController_updateCategory(request, response, next) {
+        const args = {
+            categoryCode: { "in": "path", "name": "categoryCode", "required": true, "dataType": "string" },
+            category: { "in": "body", "name": "category", "required": true, "ref": "UpdateCategoryDTO" },
+        };
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        let validatedArgs = [];
+        try {
+            validatedArgs = getValidatedArgs(args, request, response);
+            const controller = new category_controller_1.CategoryController();
+            const promise = controller.updateCategory.apply(controller, validatedArgs);
+            promiseHandler(controller, promise, response, undefined, next);
+        }
+        catch (err) {
+            return next(err);
+        }
+    });
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    app.post('/category/create-category', ...((0, runtime_1.fetchMiddlewares)(category_controller_1.CategoryController)), ...((0, runtime_1.fetchMiddlewares)(category_controller_1.CategoryController.prototype.createCategory)), function CategoryController_createCategory(request, response, next) {
+        const args = {
+            category: { "in": "body", "name": "category", "required": true, "ref": "CreateCategoryDTO" },
+        };
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        let validatedArgs = [];
+        try {
+            validatedArgs = getValidatedArgs(args, request, response);
+            const controller = new category_controller_1.CategoryController();
+            const promise = controller.createCategory.apply(controller, validatedArgs);
+            promiseHandler(controller, promise, response, undefined, next);
+        }
+        catch (err) {
+            return next(err);
+        }
+    });
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    app.get('/location/get-location-list', ...((0, runtime_1.fetchMiddlewares)(location_controller_1.LocationController)), ...((0, runtime_1.fetchMiddlewares)(location_controller_1.LocationController.prototype.getLocationList)), function LocationController_getLocationList(request, response, next) {
+        const args = {
+            isActive: { "in": "query", "name": "isActive", "dataType": "boolean" },
+        };
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        let validatedArgs = [];
+        try {
+            validatedArgs = getValidatedArgs(args, request, response);
+            const controller = new location_controller_1.LocationController();
+            const promise = controller.getLocationList.apply(controller, validatedArgs);
+            promiseHandler(controller, promise, response, undefined, next);
+        }
+        catch (err) {
+            return next(err);
+        }
+    });
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    app.get('/location/get-location/:locationCode', ...((0, runtime_1.fetchMiddlewares)(location_controller_1.LocationController)), ...((0, runtime_1.fetchMiddlewares)(location_controller_1.LocationController.prototype.getLocationByCode)), function LocationController_getLocationByCode(request, response, next) {
+        const args = {
+            locationCode: { "in": "path", "name": "locationCode", "required": true, "dataType": "string" },
+        };
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        let validatedArgs = [];
+        try {
+            validatedArgs = getValidatedArgs(args, request, response);
+            const controller = new location_controller_1.LocationController();
+            const promise = controller.getLocationByCode.apply(controller, validatedArgs);
+            promiseHandler(controller, promise, response, undefined, next);
+        }
+        catch (err) {
+            return next(err);
+        }
+    });
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    app.put('/location/update-location/:locationCode', ...((0, runtime_1.fetchMiddlewares)(location_controller_1.LocationController)), ...((0, runtime_1.fetchMiddlewares)(location_controller_1.LocationController.prototype.updateLocation)), function LocationController_updateLocation(request, response, next) {
+        const args = {
+            locationCode: { "in": "path", "name": "locationCode", "required": true, "dataType": "string" },
+            location: { "in": "body", "name": "location", "required": true, "ref": "UpdateLocationDTO" },
+        };
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        let validatedArgs = [];
+        try {
+            validatedArgs = getValidatedArgs(args, request, response);
+            const controller = new location_controller_1.LocationController();
+            const promise = controller.updateLocation.apply(controller, validatedArgs);
+            promiseHandler(controller, promise, response, undefined, next);
+        }
+        catch (err) {
+            return next(err);
+        }
+    });
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    app.post('/location/create-location', ...((0, runtime_1.fetchMiddlewares)(location_controller_1.LocationController)), ...((0, runtime_1.fetchMiddlewares)(location_controller_1.LocationController.prototype.createLocation)), function LocationController_createLocation(request, response, next) {
+        const args = {
+            location: { "in": "body", "name": "location", "required": true, "ref": "CreateLocationDTO" },
+        };
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        let validatedArgs = [];
+        try {
+            validatedArgs = getValidatedArgs(args, request, response);
+            const controller = new location_controller_1.LocationController();
+            const promise = controller.createLocation.apply(controller, validatedArgs);
             promiseHandler(controller, promise, response, undefined, next);
         }
         catch (err) {
