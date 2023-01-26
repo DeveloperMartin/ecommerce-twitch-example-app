@@ -11,7 +11,8 @@
     "build": "tsoa spec-and-routes && tsc",
     "start": "node build/src/server.js",
     "start:all": "npm run db:push && npm run build && npm run start",
-    "db:push": "npx prisma db push"
+    "db:push": "npx prisma db push",
+    "test": "jest -i"
   },
   "author": "Zatge y la comunidad",
   "license": "ISC",
