@@ -1,5 +1,5 @@
 import { CreateSizeDTO, UpdateSizeDTO } from '../models/DTO/size.dto';
-import prisma from "../models";
+import prisma from "../models/client";
 class sizeServicio {
     async getSizeList(isActive: boolean = true) {
         const sizes = await prisma.size.findMany({

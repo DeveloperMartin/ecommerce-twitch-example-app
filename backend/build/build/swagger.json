@@ -149,6 +149,78 @@
                     "code"
                 ],
                 "type": "object"
+            },
+            "Size": {
+                "properties": {
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "sizeId": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                },
+                "required": [
+                    "updatedAt",
+                    "createdAt",
+                    "isActive",
+                    "description",
+                    "code",
+                    "sizeId"
+                ],
+                "type": "object",
+                "description": "Model Size"
+            },
+            "UpdateSizeDTO": {
+                "properties": {
+                    "isActive": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "code": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "isActive",
+                    "description",
+                    "code"
+                ],
+                "type": "object"
+            },
+            "CreateSizeDTO": {
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "code": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "code"
+                ],
+                "type": "object"
             }
         },
         "securitySchemes": {}
@@ -525,6 +597,178 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/CreateLocationDTO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Size": {
+            "get": {
+                "operationId": "GetSizeList",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "sizeId": {
+                                                "type": "number",
+                                                "format": "double"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "sizeId",
+                                            "description",
+                                            "code"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Size"
+                ],
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "isActive",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ]
+            },
+            "post": {
+                "operationId": "CreateSize",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Size"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Size"
+                ],
+                "security": [],
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateSizeDTO"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Size/{sizeCode}": {
+            "get": {
+                "operationId": "GetSizeByCode",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "sizeId": {
+                                            "type": "number",
+                                            "format": "double"
+                                        },
+                                        "isActive": {
+                                            "type": "boolean"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "sizeId",
+                                        "isActive",
+                                        "description",
+                                        "code"
+                                    ],
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Size"
+                ],
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "sizeCode",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "put": {
+                "operationId": "UpdateSize",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Size"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Size"
+                ],
+                "security": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "sizeCode",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateSizeDTO"
                             }
                         }
                     }
