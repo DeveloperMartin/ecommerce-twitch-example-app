@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Escribir en consola
         run: |
-          echo 'Hola mundo'
+          ls
      
       - name: build backend
         working-directory: backend
