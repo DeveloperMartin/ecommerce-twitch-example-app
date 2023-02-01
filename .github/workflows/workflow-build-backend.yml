@@ -6,7 +6,7 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-20.04
-    
+
     
     strategy:
       matrix:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Escribir en consola
         run: |
-          ls
+          ll
      
       - name: build backend
         working-directory: backend
