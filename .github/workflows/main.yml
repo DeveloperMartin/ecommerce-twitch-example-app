@@ -1,0 +1,18 @@
+name: Decir hola en la consola
+
+on: workflow_dispatch
+
+    
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    
+    
+    strategy:
+      matrix:
+        node-version: [16.x]
+        
+    steps:
+      - name: Escribir en consola
+        run: |
+          echo 'Hola mundo'
