@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Escribir en consola
         run: |
-          ll
+          ls -a
      
       - name: build backend
         working-directory: backend
