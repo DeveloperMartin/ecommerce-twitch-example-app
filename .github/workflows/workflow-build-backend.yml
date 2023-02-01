@@ -16,3 +16,14 @@ jobs:
       - name: Escribir en consola
         run: |
           echo 'Hola mundo'
+     
+      - name: build backend
+        working-directory: backend
+        run: |
+         npm install
+         npm run test
+         npm run build
+            
+      -  name: Escribir en consola fin
+         run: |
+          echo 'Termino la action'
