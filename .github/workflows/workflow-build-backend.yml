@@ -18,7 +18,7 @@ jobs:
           ls -a
      
       - name: build backend
-        working-directory: backend
+        working-directory: ./backend
         run: |
          npm install
          npm run test
