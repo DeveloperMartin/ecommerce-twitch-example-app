@@ -1,4 +1,4 @@
-import prisma from "../models";
+import prisma from "../models/client";
 import { UpdateCategoryDTO, CreateCategoryDTO } from '../models/DTO/category.dto';
 
 
