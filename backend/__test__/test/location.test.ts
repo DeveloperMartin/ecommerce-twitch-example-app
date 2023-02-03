@@ -2,7 +2,7 @@ import { prismaMock } from '../database-simulator/client-singleton'
 import { CreateLocationDTO, UpdateLocationDTO } from '../../src/models/DTO/location.dto';
 import { locationService } from '../../src/services/location.service';
 
-test('Probar creacion nueva location', async () => {
+test('Probar creacion de nueva location', async () => {
     const location = {
         locationId: 1,
         code: "prueba",
@@ -43,7 +43,7 @@ test('Editar un location', async () => {
     await expect(locationService.updateLocation(location.code, updateLocaton)).resolves.toEqual(location)
 })
 
-test('Seleccionar una locacion', async () => {
+test('Seleccionar una location', async () => {
     const location = {
         locationId: 1,
         code: "prueba",
