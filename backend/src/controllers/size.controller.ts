@@ -2,7 +2,7 @@ import { sizeService } from "../services/size.service";
 import { Body, Get, Path, Post, Put, Query, Route, Tags } from "tsoa";
 import { UpdateSizeDTO, CreateSizeDTO } from '../models/DTO/size.dto';
 
-@Route('Size')
+@Route('size')
 @Tags('Size')
 export class SizeController {
     @Get('')
@@ -12,14 +12,14 @@ export class SizeController {
         return await sizeService.getSizeList(isActive)
     }
 
-    @Get('/{sizeCode}')
+    @Get('{sizeCode}')
     public async getSizeByCode(
         @Path() sizeCode: string
     ) {
         return await sizeService.getSizeByCode(sizeCode)
     }
 
-    @Put('/{sizeCode}')
+    @Put('{sizeCode}')
     public async updateSize(
         @Path() sizeCode: string,
         @Body() size: UpdateSizeDTO
