@@ -2,10 +2,11 @@ FROM node:16-alpine
 
 WORKDIR /backend
 
-COPY package*.json ./backend
+COPY ./ ./
 
-COPY ./build ./build
+RUN npm install
+RUN npm run build
 
 EXPOSE 3020
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
