@@ -271,7 +271,7 @@ export function RegisterRoutes(app: express.Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/Size',
+        app.get('/size',
             ...(fetchMiddlewares<RequestHandler>(SizeController)),
             ...(fetchMiddlewares<RequestHandler>(SizeController.prototype.getSizeList)),
 
@@ -296,7 +296,7 @@ export function RegisterRoutes(app: express.Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/Size/:sizeCode',
+        app.get('/size/:sizeCode',
             ...(fetchMiddlewares<RequestHandler>(SizeController)),
             ...(fetchMiddlewares<RequestHandler>(SizeController.prototype.getSizeByCode)),
 
@@ -321,7 +321,7 @@ export function RegisterRoutes(app: express.Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.put('/Size/:sizeCode',
+        app.put('/size/:sizeCode',
             ...(fetchMiddlewares<RequestHandler>(SizeController)),
             ...(fetchMiddlewares<RequestHandler>(SizeController.prototype.updateSize)),
 
@@ -347,7 +347,7 @@ export function RegisterRoutes(app: express.Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.post('/Size',
+        app.post('/size',
             ...(fetchMiddlewares<RequestHandler>(SizeController)),
             ...(fetchMiddlewares<RequestHandler>(SizeController.prototype.createSize)),
 

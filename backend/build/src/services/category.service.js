@@ -13,11 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.categoryService = void 0;
-const models_1 = __importDefault(require("../models"));
+const client_1 = __importDefault(require("../models/client"));
 class CategoryService {
     getCategoryList(isActive = true) {
         return __awaiter(this, void 0, void 0, function* () {
-            const categories = yield models_1.default.category.findMany({
+            const categories = yield client_1.default.category.findMany({
                 where: {
                     isActive: isActive
                 },
@@ -32,7 +32,7 @@ class CategoryService {
     }
     getCategoryByCode(categoryCode) {
         return __awaiter(this, void 0, void 0, function* () {
-            const category = yield models_1.default.category.findUnique({
+            const category = yield client_1.default.category.findUnique({
                 where: {
                     code: categoryCode
                 },
@@ -48,7 +48,7 @@ class CategoryService {
     }
     createCategory(category) {
         return __awaiter(this, void 0, void 0, function* () {
-            const newCategory = yield models_1.default.category.create({
+            const newCategory = yield client_1.default.category.create({
                 data: {
                     code: category.code,
                     description: category.description
@@ -71,7 +71,7 @@ class CategoryService {
             // if(!categoryUpdateFind){
             //   return
             // }
-            const updatedCategory = yield models_1.default.category.update({
+            const updatedCategory = yield client_1.default.category.update({
                 where: {
                     code: categoryCode
                 },

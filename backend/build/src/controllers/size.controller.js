@@ -54,14 +54,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], SizeController.prototype, "getSizeList", null);
 __decorate([
-    (0, tsoa_1.Get)('/{sizeCode}'),
+    (0, tsoa_1.Get)('{sizeCode}'),
     __param(0, (0, tsoa_1.Path)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], SizeController.prototype, "getSizeByCode", null);
 __decorate([
-    (0, tsoa_1.Put)('/{sizeCode}'),
+    (0, tsoa_1.Put)('{sizeCode}'),
     __param(0, (0, tsoa_1.Path)()),
     __param(1, (0, tsoa_1.Body)()),
     __metadata("design:type", Function),
@@ -76,7 +76,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], SizeController.prototype, "createSize", null);
 SizeController = __decorate([
-    (0, tsoa_1.Route)('Size'),
+    (0, tsoa_1.Route)('size'),
     (0, tsoa_1.Tags)('Size')
 ], SizeController);
 exports.SizeController = SizeController;

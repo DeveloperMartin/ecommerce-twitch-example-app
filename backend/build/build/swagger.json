@@ -603,7 +603,7 @@
                 }
             }
         },
-        "/Size": {
+        "/size": {
             "get": {
                 "operationId": "GetSizeList",
                 "responses": {
@@ -684,7 +684,7 @@
                 }
             }
         },
-        "/Size/{sizeCode}": {
+        "/size/{sizeCode}": {
             "get": {
                 "operationId": "GetSizeByCode",
                 "responses": {

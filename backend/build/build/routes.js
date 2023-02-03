@@ -204,7 +204,7 @@ function RegisterRoutes(app) {
         }
     });
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    app.get('/Size', ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController)), ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController.prototype.getSizeList)), function SizeController_getSizeList(request, response, next) {
+    app.get('/size', ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController)), ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController.prototype.getSizeList)), function SizeController_getSizeList(request, response, next) {
         const args = {
             isActive: { "in": "query", "name": "isActive", "dataType": "boolean" },
         };
@@ -221,7 +221,7 @@ function RegisterRoutes(app) {
         }
     });
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    app.get('/Size/:sizeCode', ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController)), ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController.prototype.getSizeByCode)), function SizeController_getSizeByCode(request, response, next) {
+    app.get('/size/:sizeCode', ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController)), ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController.prototype.getSizeByCode)), function SizeController_getSizeByCode(request, response, next) {
         const args = {
             sizeCode: { "in": "path", "name": "sizeCode", "required": true, "dataType": "string" },
         };
@@ -238,7 +238,7 @@ function RegisterRoutes(app) {
         }
     });
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    app.put('/Size/:sizeCode', ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController)), ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController.prototype.updateSize)), function SizeController_updateSize(request, response, next) {
+    app.put('/size/:sizeCode', ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController)), ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController.prototype.updateSize)), function SizeController_updateSize(request, response, next) {
         const args = {
             sizeCode: { "in": "path", "name": "sizeCode", "required": true, "dataType": "string" },
             size: { "in": "body", "name": "size", "required": true, "ref": "UpdateSizeDTO" },
@@ -256,7 +256,7 @@ function RegisterRoutes(app) {
         }
     });
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-    app.post('/Size', ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController)), ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController.prototype.createSize)), function SizeController_createSize(request, response, next) {
+    app.post('/size', ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController)), ...((0, runtime_1.fetchMiddlewares)(size_controller_1.SizeController.prototype.createSize)), function SizeController_createSize(request, response, next) {
         const args = {
             size: { "in": "body", "name": "size", "required": true, "ref": "CreateSizeDTO" },
         };

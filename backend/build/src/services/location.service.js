@@ -13,11 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.locationService = void 0;
-const models_1 = __importDefault(require("../models"));
+const client_1 = __importDefault(require("../models/client"));
 class LocationService {
     getLocationList(isActive = true) {
         return __awaiter(this, void 0, void 0, function* () {
-            const location = yield models_1.default.location.findMany({
+            const location = yield client_1.default.location.findMany({
                 where: {
                     isActive: isActive
                 },
@@ -32,7 +32,7 @@ class LocationService {
     }
     getLocationByCode(locationCode) {
         return __awaiter(this, void 0, void 0, function* () {
-            const location = yield models_1.default.location.findUnique({
+            const location = yield client_1.default.location.findUnique({
                 where: {
                     code: locationCode
                 },
@@ -47,7 +47,7 @@ class LocationService {
     }
     updateLocation(locationCode, location) {
         return __awaiter(this, void 0, void 0, function* () {
-            const updatedLocation = yield models_1.default.location.update({
+            const updatedLocation = yield client_1.default.location.update({
                 where: {
                     code: locationCode
                 },
@@ -62,7 +62,7 @@ class LocationService {
     }
     createLocation(location) {
         return __awaiter(this, void 0, void 0, function* () {
-            const newLocation = yield models_1.default.location.create({
+            const newLocation = yield client_1.default.location.create({
                 data: {
                     code: location.code,
                     description: location.description

@@ -13,11 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sizeService = void 0;
-const models_1 = __importDefault(require("../models"));
-class sizeServicio {
+const client_1 = __importDefault(require("../models/client"));
+class SizeService {
     getSizeList(isActive = true) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sizes = yield models_1.default.size.findMany({
+            const sizes = yield client_1.default.size.findMany({
                 where: {
                     isActive
                 },
@@ -32,7 +32,7 @@ class sizeServicio {
     }
     getSizeByCode(sizeCode) {
         return __awaiter(this, void 0, void 0, function* () {
-            const size = yield models_1.default.size.findUnique({
+            const size = yield client_1.default.size.findUnique({
                 where: {
                     code: sizeCode
                 },
@@ -48,7 +48,7 @@ class sizeServicio {
     }
     createSize(size) {
         return __awaiter(this, void 0, void 0, function* () {
-            const newSize = yield models_1.default.size.create({
+            const newSize = yield client_1.default.size.create({
                 data: {
                     code: size.code,
                     description: size.description
@@ -59,7 +59,7 @@ class sizeServicio {
     }
     updateSize(sizeCode, size) {
         return __awaiter(this, void 0, void 0, function* () {
-            const updateSize = yield models_1.default.size.update({
+            const updateSize = yield client_1.default.size.update({
                 where: {
                     code: sizeCode
                 },
@@ -73,4 +73,4 @@ class sizeServicio {
         });
     }
 }
-exports.sizeService = new sizeServicio();
+exports.sizeService = new SizeService();
