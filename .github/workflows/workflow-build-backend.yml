@@ -1,4 +1,4 @@
-name: Decir hola en la consola
+name: Build backend
 
 on: workflow_dispatch
 
@@ -27,7 +27,3 @@ jobs:
             npm install
             npm run test
             npm run build
-
-        -  name: Escribir en consola fin
-           run: |
-            echo 'Termino la action'
