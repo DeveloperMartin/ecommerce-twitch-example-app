@@ -1,6 +1,6 @@
 import { CreateSizeDTO, UpdateSizeDTO } from '../models/DTO/size.dto';
 import prisma from "../models/client";
-class sizeServicio {
+class SizeService {
     async getSizeList(isActive: boolean = true) {
         const sizes = await prisma.size.findMany({
             where: {
@@ -58,4 +58,4 @@ class sizeServicio {
     }
 }
 
-export const sizeService = new sizeServicio()
+export const sizeService = new SizeService()
