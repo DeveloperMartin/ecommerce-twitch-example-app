@@ -37,6 +37,7 @@ model Product {
   category      Category       @relation(fields: [categoryId], references: [categoryId])
   size          Size           @relation(fields: [sizeId], references: [sizeId])
   productsStock ProductStock[]
+  SellDetail    SellDetail[]
 
   @@map("Products")
 }
@@ -81,4 +82,67 @@ model Size {
   products Product[]
 
   @@map("Sizes")
+}
+
+model Role {
+  roleId      Int      @id @default(autoincrement())
+  code        String   @unique
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+  updatedAt   DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+
+  users User[]
+
+  @@map("Roles")
+}
+
+model User {
+  userId    Int       @id @default(autoincrement())
+  username  String    @unique
+  password  String
+  fullName  String
+  birthDate DateTime?
+  email     String
+  roleId    Int
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+  updatedAt DateTime  @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+
+  role  Role   @relation(fields: [roleId], references: [roleId])
+  buys  Sell[] @relation("BuyUser")
+  sells Sell[] @relation("SellUser")
+
+  @@map("Users")
+}
+
+model Sell {
+  sellId     Int      @id @default(autoincrement())
+  buyUserId  Int
+  sellUserId Int
+  comments   String?
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+  updatedAt  DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+
+  buyUser    User         @relation("BuyUser", fields: [buyUserId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
+  sellUser   User         @relation("SellUser", fields: [sellUserId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
+  SellDetail SellDetail[]
+}
+
+model SellDetail {
+  sellDetailId       Int     @id @default(autoincrement())
+  sellId             Int
+  productId          Int
+  count              Int
+  price              Float
+  descriptionProduct String?
+  comments           String?
+
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+  updatedAt DateTime @default(dbgenerated("getutcdate()")) @db.DateTimeOffset
+
+  sell    Sell    @relation(fields: [sellId], references: [sellId])
+  product Product @relation(fields: [productId], references: [productId])
 }
